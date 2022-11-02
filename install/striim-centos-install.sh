@@ -84,7 +84,9 @@ then
      sudo systemctl status striim-node
      echo "${GREEN} Succesfully started Striim node and dbms ${NC}"
      
-     ./create_initial_load_applications.sh
+     if [ -f "create_initial_load_applications.sh" ]; then 
+     	./create_initial_load_applications.sh
+     fi
 
      #Verify instance is running
      sudo tail -F /opt/striim/logs/striim-node.log
