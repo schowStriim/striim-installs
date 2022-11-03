@@ -39,7 +39,7 @@
         - Enter # IL applications: `1`
             - Note: We recommend entering a value of `1` for the initial PoC but if you'd like to increase the performance of the initial load, enter a  number greater than one and a Java script will calculate the size of your tables and split the applications accordingly. For more information, please contact the Striim team.
         - Enter the # Striim cores: `16`
-            - Note: This value is used to parallelize the initial load and split the threads according on the amount of applications you created.
+            - Note: This value is used to parallelize the initial load and split the threads depending on the amount of applications you created.
         - Enter target JDBC URL: `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]`
         - Enter username: `<database_user>`
         - Enter password: `<password>`
