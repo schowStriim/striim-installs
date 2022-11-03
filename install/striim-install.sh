@@ -20,14 +20,6 @@ GREEN=$'\e[0;32m'
 RED=$'\e[0;31m'
 NC=$'\e[0m'
 
-startup_config=/opt/striim/conf/startUp.properties
-echo "######################"
-echo "# Welcome to Striim! #"
-echo "######################"
-
-echo "To get started with the installation. Which operating system are you using? (centos, redhat, ubuntu or debian)"
-read os
-
 # Check to see if environment variables are set to configure startup.properties file
 if [[ -z "$company_name" ]]; then
     echo "${RED} Must provide company_name in environment ${NC} " 1>&2
@@ -45,6 +37,15 @@ elif [[ -z "$total_memory" ]]; then
     echo "${RED} Must provide total_memory in environment ${NC} " 1>&2
     exit 1
 fi
+
+startup_config=/opt/striim/conf/startUp.properties
+echo "######################"
+echo "# Welcome to Striim! #"
+echo "######################"
+
+echo "To get started with the installation. Which operating system are you using? (centos, redhat, ubuntu or debian)"
+read os
+
 
 
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
