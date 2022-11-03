@@ -4,6 +4,9 @@
 echo "Would you like to create Initial Load application(s)? (yes or no)"
 read ANSWER
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+JAVA_FILE_DIR="$SCRIPT_DIR"/InitialLoadTQLGenerator_v06.jar
+
 if [ $ANSWER == 'yes' ] || [ $ANSWER == 'y' ] || [ $ANSWER == 'YES' ]
 then
     echo "How many Initial Load applications would you like to create?"
@@ -11,7 +14,7 @@ then
     if [ $IL_AMOUNT -eq 1 ]
     then
 
-        java -jar InitialLoadTQLGenerator_v06.jar
+        java -jar $JAVA_FILE_DIR
 
     elif [ $IL_AMOUNT -gt 1 ]
     then
@@ -29,7 +32,7 @@ then
         
         if [ $PROCEED == 'yes' ]
         then
-            java -jar InitialLoadTQLGenerator_v06.jar
+            java -jar $JAVA_FILE_DIR
         fi
     fi
 elif [ $ANSWER == 'no' ] || [ $ANSWER == 'n' ] || [ $ANSWER == 'NO' ]

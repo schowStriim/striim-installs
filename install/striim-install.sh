@@ -110,8 +110,11 @@ then
     sudo systemctl start striim-node
     echo "${GREEN} Succesfully started Striim node and dbms ${NC}"
     
-    if [ -f "create_initial_load_applications.sh" ]; then
-       ./create_initial_load_applications.sh
+    SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+    create_apps_filepath="$SCRIPT_DIR"/create_initial_load_applications.sh
+    
+    if [ -f "$create_apps_filepath" ]; then
+       $create_apps_filepath
     fi
  
     #Verify instance is running
