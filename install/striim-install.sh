@@ -56,13 +56,14 @@ then
 	curl -L https://striim-downloads.striim.com/Releases/4.1.0.1/striim-node-4.1.0.1-Linux.deb --output striim-node-4.1.0.1-Linux.deb 
 	sudo dpkg -i striim-dbms-4.1.0.1-Linux.deb
 	sudo dpkg -i striim-node-4.1.0.1-Linux.deb
-
+	sudo apt-get install bc -y
 elif [ $os == 'centos' ] || [ $os == 'redhat' ];
 then
 	echo "${GREEN} Install Striim Version 4.1.0.1 ${NC}"
 	curl -L https://striim-downloads.striim.com/Releases/4.1.0.1/striim-dbms-4.1.0.1-Linux.rpm --output striim-dbms-4.1.0.1-Linux.rpm
 	curl -L https://striim-downloads.striim.com/Releases/4.1.0.1/striim-node-4.1.0.1-Linux.rpm --output striim-node-4.1.0.1-Linux.rpm
 	sudo rpm -ivh striim-dbms-4.1.0.1-Linux.rpm
+	sudo yum install bc -y
 	sudo rpm -ivh striim-node-4.1.0.1-Linux.rpm
 else
 	echo "${RED} Wrong selection. Please enter either debian, ubuntu, centos or redhat. ${NC} "
