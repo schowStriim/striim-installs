@@ -6,8 +6,8 @@
 # 4) Enables/Starts Striim dbms and node.                                                      #
 #                                                                                              # 
 # PRE-REQUISITE:                                                                               #
-# 1) This script is only for Ubuntu operating system.		                               #
-# 2) Need to export your striim licence (example shown below) as environment variables         # 
+# 1) This script is only for Ubuntu, CentOS, Amazon Linux, Debian and RedHat operating system. #
+# 2) Need to export your license information (example shown below) as environment variables    # 
 #    before executing this script.                                                             # 
 #                                                                                              #
 # For example:                                                                                 #
@@ -15,7 +15,8 @@
 # export product_key=<value>                                                                   #
 # export cluster_name=<value>                                                                  #
 # export company_name=<value>                                                                  #
-#################################################################################################
+# export total_memory=<value>								       #
+################################################################################################
 GREEN=$'\e[0;32m'
 RED=$'\e[0;31m'
 NC=$'\e[0m'
@@ -43,10 +44,9 @@ echo "######################"
 echo "# Welcome to Striim! #"
 echo "######################"
 
-echo "To get started with the installation. Which operating system are you using? (centos, redhat, ubuntu or debian)"
+echo "Please answer the following to get started with the installation process."
+echo "Which operating system are you using? (amazon, centos, redhat, ubuntu or debian)"
 read os
-
-
 
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
