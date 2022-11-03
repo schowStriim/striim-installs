@@ -41,15 +41,11 @@ elif [[ -z "$licence_key" ]]; then
 elif [[ -z "$product_key" ]]; then
     echo "${RED} Must provide product_key in environment ${NC} " 1>&2
     exit 1
+elif [[ -z "$total_memory" ]]; then
+    echo "${RED} Must provide total_memory in environment ${NC} " 1>&2
+    exit 1
 fi
 
-# Install Java JDK (1.8)
-echo "${GREEN} Install Java JDK 1.8 ${NC}"
-curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x64.tar.gz --output jdk-8u341-linux-x64.tar.gz
-mkdir -p /usr/lib/jvm
-tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
-update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
-update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
 
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
@@ -60,7 +56,26 @@ then
 	sudo dpkg -i striim-dbms-4.1.0.1-Linux.deb
 	sudo dpkg -i striim-node-4.1.0.1-Linux.deb
 
+elif [ $os == 'centos' ] || [ $os == 'redhat' ];
+then
+	echo "${GREEN} Install Striim Version 4.1.0.1 ${NC}"
+	curl -L https://striim-downloads.striim.com/Releases/4.1.0.1/striim-dbms-4.1.0.1-Linux.rpm --output striim-dbms-4.1.0.1-Linux.rpm
+	curl -L https://striim-downloads.striim.com/Releases/4.1.0.1/striim-node-4.1.0.1-Linux.rpm --output striim-node-4.1.0.1-Linux.rpm
+	sudo rpm -ivh striim-dbms-4.1.0.1-Linux.rpm
+	sudo rpm -ivh striim-node-4.1.0.1-Linux.rpm
+else
+	echo "${RED} Wrong selection. Please enter either debian, ubuntu, centos or redhat. ${NC} "
+	exit 1
 fi
+
+# Install Java JDK (1.8)
+echo "${GREEN} Install Java JDK 1.8 ${NC}"
+curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x64.tar.gz --output jdk-8u341-linux-x64.tar.gz
+mkdir -p /usr/lib/jvm
+tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
+update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
+update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
+
 
 if [ -d "/opt/striim/bin" ]
 then
