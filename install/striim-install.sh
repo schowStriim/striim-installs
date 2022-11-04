@@ -1,5 +1,5 @@
 ################################################################################################
-# DESCRIPTION: (Ubuntu) This bash script does the following:                                   # 
+# DESCRIPTION: This bash script does the following:                                   # 
 # 1) Installs Java JDK (1.8).                                                                  #
 # 2) Installs Striim (4.1.0.1).                                                                # 
 # 3) Sets up Striim configuration (startup.properties and runs sksConfig file).                #
