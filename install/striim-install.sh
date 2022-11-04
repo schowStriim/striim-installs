@@ -1,3 +1,4 @@
+#!/bin/bash
 ################################################################################################
 # DESCRIPTION: This bash script does the following:                                   	       #	 
 # 1) Installs Java JDK (1.8).                                                                  #
