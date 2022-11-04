@@ -25,7 +25,7 @@
 
 6) Execute striim-install.sh script: `./striim-install.sh`
 
-7) After the script installs Java and Striim, it will show a prompt for you to enter your KeyStore, sys and admin user password. 
+7) After the script installs Java and Striim, it will show a prompt for you to set your KeyStore, sys and admin user password. 
     - Note: You will login to Striim console with the admin credentials you entered in this step.
    
 8) Select '1' or 'Derby' when it asks you to enter the MDR Types.
