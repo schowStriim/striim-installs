@@ -1,7 +1,7 @@
 # Striim Installation
 ## Steps to install and configure Striim (4.1.0.1) and Java (1.8).
 
-1) Logging to your VM and install Git in your Striim VM by running this command:
+1) Connect to your VM and install Git in your Striim VM by running this command:
     - CentOS, Amazon Linux 2, and RedHat: 
         - `sudo yum update -y`
         - `sudo yum install git -y`
