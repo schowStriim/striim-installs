@@ -53,7 +53,7 @@ read os
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
 	# Install Striim
-	echo "${GREEN} Install Striim Version 4.1.0.1 ${NC}"
+	echo "${GREEN} Install Striim Version 4.1.0.2 ${NC}"
 	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-dbms-4.1.0.2-Linux.deb --output striim-dbms-4.1.0.2-Linux.deb
 	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-node-4.1.0.2-Linux.deb --output striim-node-4.1.0.2-Linux.deb 
 	sudo dpkg -i striim-dbms-4.1.0.2-Linux.deb
