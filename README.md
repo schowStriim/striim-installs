@@ -51,4 +51,8 @@ Please go to http://10.1.2.3.4:9080 or https://10.1.2.3.4:9081 to administer, or
 
 12) Once you authenticate to the Striim console, you can import the TQL file(s) you created on step #9 by navigating to Apps -> Create Apps -> Import TQL Files.
 
+13) **(Only for MySQL Reader)** In order to use the MySQL Reader in Striim, the user will have to install the MySQL JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mysql-jdbc-driver-in-a-forwarding-agent.html
+
+14) **(Only for MariaDB Reader)** In order to use the MariaDB Reader in Striim, the user will have to install the MariaDB JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mariadb-jdbc-driver-in-a-forwarding-agent.html
+
 If you don't see striim console up and running in your browser, make sure your instance has port 9080 open and your network is configured correctly.
