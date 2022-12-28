@@ -41,6 +41,14 @@ elif [[ -z "$total_memory" ]]; then
     exit 1
 fi
 
+if [[ -z "$striim_version" ]]; then
+    striim_version=4.1.0.4
+else
+    striim_version=$striim_version
+fi
+
+echo "Download Striim version "$striim_version" " 1>&2
+
 startup_config=/opt/striim/conf/startUp.properties
 echo "######################"
 echo "# Welcome to Striim! #"
@@ -53,20 +61,20 @@ read os
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
 	# Install Striim
-	echo "${GREEN} Install Striim Version 4.1.0.2 ${NC}"
-	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-dbms-4.1.0.2-Linux.deb --output striim-dbms-4.1.0.2-Linux.deb
-	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-node-4.1.0.2-Linux.deb --output striim-node-4.1.0.2-Linux.deb 
-	sudo dpkg -i striim-dbms-4.1.0.2-Linux.deb
-	sudo dpkg -i striim-node-4.1.0.2-Linux.deb
+	echo "${GREEN} Install Striim Version ${striim_version} ${NC}"
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.deb --output striim-node-$striim_version-Linux.deb 
+	sudo dpkg -i striim-dbms-$striim_version-Linux.deb
+	sudo dpkg -i striim-node-$striim_version-Linux.deb
 	sudo apt-get install bc -y
 elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ];
 then
-	echo "${GREEN} Install Striim Version 4.1.0.2 ${NC}"
-	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-dbms-4.1.0.2-Linux.rpm --output striim-dbms-4.1.0.2-Linux.rpm
-	curl -L https://striim-downloads.striim.com/Releases/4.1.0.2/striim-node-4.1.0.2-Linux.rpm --output striim-node-4.1.0.2-Linux.rpm
-	sudo rpm -ivh striim-dbms-4.1.0.2-Linux.rpm
+	echo "${GREEN} Install Striim Version $striim_version ${NC}"
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.rpm --output striim-node-$striim_version-Linux.rpm
+	sudo rpm -ivh striim-dbms-$striim_version-Linux.rpm
 	sudo yum install bc -y
-	sudo rpm -ivh striim-node-4.1.0.2-Linux.rpm
+	sudo rpm -ivh striim-node-$striim_version-Linux.rpm
 else
 	echo "${RED} Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat. ${NC} "
 	exit 1
@@ -125,4 +133,5 @@ else
       echo "${RED} Striim installation failed. Please check logs. ${NC} " 1>&2
       exit 1
 fi
+
 
