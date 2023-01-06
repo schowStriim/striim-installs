@@ -65,7 +65,7 @@ if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
 	# Install Striim
 	echo "${GREEN} Install Striim Version ${striim_version} ${NC}"
-	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.deb --output striim-dbms-$striim_version-Linux.deb
 	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.deb --output striim-node-$striim_version-Linux.deb 
 	sudo dpkg -i striim-dbms-$striim_version-Linux.deb
 	sudo dpkg -i striim-node-$striim_version-Linux.deb
