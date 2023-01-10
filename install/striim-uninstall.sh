@@ -1,4 +1,4 @@
-echo "Which operating system are you using? (amazon, centos, redhat, ubuntu or debian)"
+echo "Which operating system are you using? (amazon, centos, redhat, ubuntu, suse or debian)"
 read os
 
 #Delete Java
