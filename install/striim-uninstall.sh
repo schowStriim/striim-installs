@@ -19,6 +19,6 @@ else
 	echo "${RED} Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat. ${NC} "
 	exit 1
 fi
-echo "Uninstalled Strii...m"
+echo "Uninstalled Striim..."
 #Delete Striim directory
 sudo rm -rf /opt/striim/
