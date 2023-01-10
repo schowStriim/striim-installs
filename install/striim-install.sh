@@ -9,7 +9,8 @@
 # 5) Enables/Starts Striim dbms and node.                                                      #
 #                                                                                              # 
 # PRE-REQUISITE:                                                                               #
-# 1) This script is only for Ubuntu, CentOS, Amazon Linux, Debian and RedHat operating system. #
+# 1) This script is only for Ubuntu, CentOS, Amazon Linux, Debian, Suse and RedHat operating   #
+#    system. 										       #
 # 2) Need to export your license information (example shown below) as environment variables    # 
 #    before executing this script.                                                             # 
 #                                                                                              #
@@ -58,7 +59,7 @@ echo "# Welcome to Striim! #"
 echo "######################"
 
 echo "Please answer the following to get started with the installation process."
-echo "Which operating system are you using? (amazon, centos, redhat, ubuntu or debian)"
+echo "Which operating system are you using? (amazon, centos, redhat, ubuntu, suse or debian)"
 read os
 
 if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
@@ -70,13 +71,21 @@ then
 	sudo dpkg -i striim-dbms-$striim_version-Linux.deb
 	sudo dpkg -i striim-node-$striim_version-Linux.deb
 	sudo apt-get install bc -y
-elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ];
+elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ] || [ $os == 'suse' ];
 then
 	echo "${GREEN} Install Striim Version $striim_version ${NC}"
 	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm
 	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.rpm --output striim-node-$striim_version-Linux.rpm
 	sudo rpm -ivh striim-dbms-$striim_version-Linux.rpm
-	sudo yum install bc -y
+	
+	#Installing bc package 
+	if [ $os == 'suse' ];
+	then
+	    sudo zypper install -y bc
+	else
+	    sudo yum install bc -y
+	fi
+	
 	sudo rpm -ivh striim-node-$striim_version-Linux.rpm
 else
 	echo "${RED} Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat. ${NC} "
