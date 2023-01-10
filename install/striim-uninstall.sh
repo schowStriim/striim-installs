@@ -10,14 +10,15 @@ then
 	sudo dpkg -r striim-node
 	sudo dpkg -r striim-dbms
 		
-elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ];
+elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ] [ $os == 'suse' ];
 then
 	sudo rpm -e striim-node
 	sudo rpm -e striim-dbms
+	
 else
 	echo "${RED} Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat. ${NC} "
 	exit 1
 fi
-
+echo "Uninstalled Strii...m"
 #Delete Striim directory
 sudo rm -rf /opt/striim/
