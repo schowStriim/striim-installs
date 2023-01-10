@@ -10,7 +10,7 @@ then
 	sudo dpkg -r striim-node
 	sudo dpkg -r striim-dbms
 		
-elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ] [ $os == 'suse' ];
+elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ] || [ $os == 'suse' ];
 then
 	sudo rpm -e striim-node
 	sudo rpm -e striim-dbms
