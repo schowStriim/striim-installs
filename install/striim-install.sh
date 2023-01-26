@@ -2,7 +2,7 @@
 ################################################################################################
 # DESCRIPTION: This bash script does the following:                                   	       #	 
 # 1) Installs Java JDK (1.8).                                                                  #
-# 2) Installs Striim (4.1.0.1).                                                                # 
+# 2) Installs Striim (4.1.0.4).                                                                # 
 # 3) Sets up Striim configuration (startup.properties and runs sksConfig file).                #
 # 4) Creates a single or multiple Initial Load application(s). (Optional)		       #
 # 5) Enables/Starts Striim dbms and node.                                                      #
