@@ -30,30 +30,16 @@
     - Note: You will login to Striim console with the admin credentials you entered in this step.
    
 8) Select '1' or 'Derby' when it asks you to enter the MDR Types.
-
-9) After the script configures Striim node and database, it will show a prompt asking if you'd like to create your Initial Load TQL file.
-    - If your answer is 'yes', you will have to provide the following:
-        - Enter source JDBC URL: `jdbc:oracle:thin:[<user>/<password>]@<host>[:<port>]:<SID>` 
-        - Enter schemas and tables to exclude: `<schema_1>;<schema_2>;<schema_3>`
-        - Enter username: `<database_user>`
-        - Enter password: `<password>`
-        - Enter # IL applications: `1`
-            - Note: We recommend entering a value of `1` for the initial PoC but if you'd like to increase the performance of the initial load, enter a  number greater than one and a Java script will calculate the size of your tables and split the applications accordingly. For more information, please contact the Striim team.
-        - Enter the # Striim cores: `16`
-            - Note: This value is used to parallelize the initial load and split the threads depending on the amount of applications you created.
-        - Enter target JDBC URL: `jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]`
-        - Enter username: `<database_user>`
-        - Enter password: `<password>`
             
-10) Wait until you get an output message like the following:
+9) Wait until you get an output message like the following:
 Please go to http://10.1.2.3.4:9080 or https://10.1.2.3.4:9081 to administer, or use console
 
-11) Grab your instance public IP and type the following to your browser: <public-ip>:9080
+10) Grab your instance public IP and type the following to your browser: <public-ip>:9080
 
-12) Once you authenticate to the Striim console, you can import the TQL file(s) you created on step #9 by navigating to Apps -> Create Apps -> Import TQL Files.
+11) Once you authenticate to the Striim console, you can import the TQL file(s) you created on step #9 by navigating to Apps -> Create Apps -> Import TQL Files.
 
-13) **(Only for MySQL Reader)** In order to use the MySQL Reader in Striim, the user will have to install the MySQL JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mysql-jdbc-driver-in-a-forwarding-agent.html
+12) **(Only for MySQL Reader)** In order to use the MySQL Reader in Striim, the user will have to install the MySQL JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mysql-jdbc-driver-in-a-forwarding-agent.html
 
-14) **(Only for MariaDB Reader)** In order to use the MariaDB Reader in Striim, the user will have to install the MariaDB JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mariadb-jdbc-driver-in-a-forwarding-agent.html
+13) **(Only for MariaDB Reader)** In order to use the MariaDB Reader in Striim, the user will have to install the MariaDB JDBC adapter and store it in /opt/striim/lib/ directory. Link: https://www.striim.com/docs/en/install-the-mariadb-jdbc-driver-in-a-forwarding-agent.html
 
 If you don't see striim console up and running in your browser, make sure your instance has port 9080 open and your network is configured correctly.
