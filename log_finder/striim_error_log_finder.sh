@@ -1,4 +1,10 @@
 #!/bin/bash
+###########################################################################################
+# Script name: striim_error_log_finder.sh                                                 #
+# Description: This shell script will extract ALL errors from the striim.server.log file. #
+# Usage: sudo ./striim_error_log_finder.sh /opt/striim/logs                               #
+###########################################################################################
+
 GREEN=$'\e[0;32m'
 BLUE=$'\e[0;34m'
 RED=$'\e[0;31m'
