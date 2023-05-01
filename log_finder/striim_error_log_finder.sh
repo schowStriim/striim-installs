@@ -15,10 +15,11 @@ LOG_DIR=$1
 if [[ -z "$LOG_DIR" ]] ;
 then
     
-    printf "\nERROR: Missing the log directory path. \n"
-    printf "Please provide striim.server.log directory path.\n"
-    printf "${RED}Example: ./striim_error_log_finder.sh /opt/striim/logs ${NC}\n"
-    exit 1
+    printf "\nWARNING: Missing the log directory path. \n"
+    printf "Using defaulted log directory path: /opt/striim/logs \n"
+    printf "If the log file is in a different directory, please enter the log directory file path in the first argument. \n"
+    printf "For example: ./striim_error_log_finder.sh /opt/custom/path/dir/logs \n"
+    LOG_DIR=/opt/striim/logs
 fi
 
 LOG_FILE=$LOG_DIR/striim.server.log
@@ -29,7 +30,7 @@ if [[ -f "$LOG_FILE" ]]; then
     ERROR_LOG_FILE=$LOG_DIR/striim_error_logs_"$TIMESTAMP".log
 
     grep -e "-ERROR" $LOG_FILE | awk '{print $0,"\n"}' > $ERROR_LOG_FILE
-    printf "Successfully parsed and generated the Striim error log file: $ERROR_LOG_FILE"
+    printf "Successfully parsed and generated the Striim error log file: $ERROR_LOG_FILE \n "
 else
     printf "\n The striim.server.log file doesn't exist in the specified directory: $LOG_FILE \n"
     exit 1
