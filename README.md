@@ -56,5 +56,5 @@ To troubleshoot any data pipeline/application errors and/or view detailed error 
 *For example:*
  
 - To get ALL errors from your striim.server.log file: `sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log`
-- To get errors from an application: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.test_app_striim
-- To get errors from a source/target application component: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.source_or_target_component
+- To get errors from an application: `sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.test_app_striim`
+- To get errors from a source/target application component: `sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.source_or_target_component`
