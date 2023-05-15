@@ -51,9 +51,10 @@ To troubleshoot any data pipeline/application errors and/or view detailed error 
     
 2) Go to striim-install/log_finder/. **For example:** cd ./striim-installs/log_finder/
     
-3) Execute the striim_error_log_finder.sh shell script with the appropriate arguments. *Format:* ./striim_error_log_finder <directory path and file name of the striim.server.log file> <application name/application component name>
+3) Execute the striim_error_log_finder.sh shell script with the appropriate arguments.
+**Format:** ./striim_error_log_finder <striim.server.log dir path and filename> <application name/application component name>
     
-*For example:*
+**For example:**
  
 - To get ALL errors from your striim.server.log file: `sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log`
 - To get errors from an application: `sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.test_app_striim`
