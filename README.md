@@ -46,10 +46,10 @@ If you don't see striim console up and running in your browser, make sure your i
     
 # Troubleshoot
 To troubleshoot any data pipeline/application errors and/or view detailed error messages from your Striim app/components, please follow these steps to parse and generate the logs:
-    1) Access your Striim server terminal
-    2) Go to striim-install/log_finder/. For example: cd ./striim-installs/log_finder/
-    3) Execute the striim_error_log_finder.sh shell script with the appropriate arguments. *Format:* ./striim_error_log_finder <directory path and file name of the striim.server.log file> <application name/application component name>
-    *For example:*
-        - To get ALL errors from your striim.server.log file: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log
-        - To get errors from an application: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.test_app_striim
-        - To get errors from a source/target application component: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.source_or_target_component
+1) Access your Striim server terminal
+2) Go to striim-install/log_finder/. For example: cd ./striim-installs/log_finder/
+3) Execute the striim_error_log_finder.sh shell script with the appropriate arguments. *Format:* ./striim_error_log_finder <directory path and file name of the striim.server.log file> <application name/application component name>
+*For example:*
+- To get ALL errors from your striim.server.log file: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log
+- To get errors from an application: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.test_app_striim
+- To get errors from a source/target application component: sudo ./striim_error_log_finder.sh /opt/striim/logs/striim.server.log admin.source_or_target_component
