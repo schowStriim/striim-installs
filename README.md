@@ -1,5 +1,6 @@
 # Striim Installation
 ## Steps to install and configure Striim and Java (1.8).
+** IMPORTANT: ** Please set up your VM with the subsequent specifications: 16 cores/CPU, 32 GB of RAM, and 100 GB of storage. Additionally, ensure that ports 9080 and 9081 are open in your VM.
 
 1) Connect to your VM and install Git by running this command:
     - CentOS, Amazon Linux 2, and RedHat: 
