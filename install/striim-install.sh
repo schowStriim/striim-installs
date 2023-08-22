@@ -26,22 +26,23 @@ GREEN=$'\e[0;32m'
 RED=$'\e[0;31m'
 NC=$'\e[0m'
 
+# Function to display error message and exit
+exit_with_error() {
+    echo "${RED}ERROR: $1${NC}" 1>&2
+    exit 1
+}
+
 # Check to see if environment variables are set to configure startup.properties file
 if [[ -z "$company_name" ]]; then
-    echo "${RED} Must provide company_name in environment ${NC} " 1>&2
-    exit 1
+    exit_with_error "Must provide company_name in environment"
 elif [[ -z "$cluster_name" ]]; then
-    echo "${RED} Must provide cluster_name in environment ${NC} " 1>&2
-    exit 1
+    exit_with_error "Must provide cluster_name in environment"
 elif [[ -z "$licence_key" ]]; then
-    echo "${RED} Must provide licence_key in environment ${NC} " 1>&2
-    exit 1
+    exit_with_error "Must provide licence_key in environment"
 elif [[ -z "$product_key" ]]; then
-    echo "${RED} Must provide product_key in environment ${NC} " 1>&2
-    exit 1
+    exit_with_error "Must provide product_key in environment"
 elif [[ -z "$total_memory" ]]; then
-    echo "${RED} Must provide total_memory in environment ${NC} " 1>&2
-    exit 1
+    exit_with_error "Must provide total_memory in environment"
 fi
 
 if [[ -z "$striim_version" ]]; then
@@ -50,7 +51,7 @@ else
     striim_version=$striim_version
 fi
 
-echo "Download Striim version "$striim_version" " 1>&2
+echo "Download Striim version $striim_version"
 
 startup_config=/opt/striim/conf/startUp.properties
 echo "######################"
@@ -65,40 +66,50 @@ if [ $os == 'ubuntu' ] || [ $os == 'debian' ];
 then	
 	# Install Striim
 	echo "${GREEN} Install Striim Version ${striim_version} ${NC}"
-	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.deb --output striim-dbms-$striim_version-Linux.deb
-	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.deb --output striim-node-$striim_version-Linux.deb 
-	sudo dpkg -i striim-dbms-$striim_version-Linux.deb
-	sudo dpkg -i striim-node-$striim_version-Linux.deb
-	sudo apt-get install bc -y
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.deb --output striim-dbms-$striim_version-Linux.deb ||
+        exit_with_error "Failed to download striim-dbms package"
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.deb --output striim-node-$striim_version-Linux.deb ||
+        exit_with_error "Failed to download striim-node package"
+	sudo dpkg -i striim-dbms-$striim_version-Linux.deb ||
+        exit_with_error "Failed to install striim-dbms package"
+	sudo dpkg -i striim-node-$striim_version-Linux.deb ||
+        exit_with_error "Failed to install striim-node package"
+	sudo apt-get install bc -y ||
+        exit_with_error "Failed to install bc package"
 elif [ $os == 'centos' ] || [ $os == 'redhat' ] || [ $os == 'amazon' ] || [ $os == 'suse' ];
 then
 	echo "${GREEN} Install Striim Version $striim_version ${NC}"
-	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm
-	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.rpm --output striim-node-$striim_version-Linux.rpm
-	sudo rpm -ivh striim-dbms-$striim_version-Linux.rpm
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-dbms-$striim_version-Linux.rpm --output striim-dbms-$striim_version-Linux.rpm ||
+        exit_with_error "Failed to download striim-dbms package"
+	curl -L https://striim-downloads.striim.com/Releases/$striim_version/striim-node-$striim_version-Linux.rpm --output striim-node-$striim_version-Linux.rpm ||
+        exit_with_error "Failed to download striim-node package"
+	sudo rpm -ivh striim-dbms-$striim_version-Linux.rpm ||
+        exit_with_error "Failed to install striim-dbms package"
 	
-	#Installing bc package 
+	# Installing bc package 
 	if [ $os == 'suse' ];
 	then
-	    sudo zypper install -y bc
+	    sudo zypper install -y bc ||
+            exit_with_error "Failed to install bc package"
 	else
-	    sudo yum install bc -y
+	    sudo yum install bc -y ||
+            exit_with_error "Failed to install bc package"
 	fi
 	
-	sudo rpm -ivh striim-node-$striim_version-Linux.rpm
+	sudo rpm -ivh striim-node-$striim_version-Linux.rpm ||
+        exit_with_error "Failed to install striim-node package"
 else
-	echo "${RED} Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat. ${NC} "
-	exit 1
+	exit_with_error "Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat."
 fi
 
 # Install Java JDK (1.8)
 echo "${GREEN} Install Java JDK 1.8 ${NC}"
-curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x64.tar.gz --output jdk-8u341-linux-x64.tar.gz
+curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x64.tar.gz --output jdk-8u341-linux-x64.tar.gz ||
+    exit_with_error "Failed to download Java JDK package"
 mkdir -p /usr/lib/jvm
 tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
 update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
 update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
-
 
 if [ -d "/opt/striim/bin" ]
 then
@@ -129,13 +140,10 @@ then
     sleep 5
     sudo systemctl enable striim-node
     sudo systemctl start striim-node
-    echo "${GREEN} Succesfully started Striim node and dbms ${NC}"
+    echo "${GREEN} Successfully started Striim node and dbms ${NC}"
     
-    #Verify instance is running
+    # Verify instance is running
     sudo tail -F /opt/striim/logs/striim/striim-node.log
 else
-      echo "${RED} Striim installation failed. Please check logs. ${NC} " 1>&2
-      exit 1
+    exit_with_error "Striim installation failed. Please check logs."
 fi
-
-
