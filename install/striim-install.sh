@@ -26,6 +26,12 @@ GREEN=$'\e[0;32m'
 RED=$'\e[0;31m'
 NC=$'\e[0m'
 
+if [ -d "/opt/striim/" ]; then
+    echo "${RED}ERROR: The /opt/striim/ directory already exists. Script cannot be run again.${NC}" 1>&2
+    echo "${RED} If you intend to reinstall Striim or upgrade to a new version, please execute the 'striim-uninstall.sh' script before running 'striim-install.sh'. ${NC}" 1>&2
+    exit 1
+fi
+
 # Function to display error message and exit
 exit_with_error() {
     echo "${RED}ERROR: $1${NC}" 1>&2
