@@ -34,7 +34,7 @@ fi
 
 # Function to display error message and exit
 exit_with_error() {
-    echo "${RED}ERROR: $1${NC}" 1>&2
+    echo -e "${RED}ERROR: $1${NC}" 1>&2
     exit 1
 }
 
@@ -103,7 +103,7 @@ then
 	fi
 	
 	sudo rpm -ivh striim-node-$striim_version-Linux.rpm ||
-        exit_with_error "Failed to install striim-node package"
+        exit_with_error "Failed to install striim-node package \n Storage Space Size: $(df -h /opt | awk 'NR==2 {print $2}') \n Used Space: $(df -h /opt | awk 'NR==2 {print $3}') \n Preferred Storage Size for Striim: 100.0G"
 else
 	exit_with_error "Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat."
 fi
