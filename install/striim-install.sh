@@ -114,6 +114,7 @@ curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x
     exit_with_error "Failed to download Java JDK package"
 mkdir -p /usr/lib/jvm
 tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
+chmod -R 755 /usr/lib/jvm/jdk1.8.0_341
 update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
 update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
 
