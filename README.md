@@ -1,8 +1,8 @@
 # Striim Installation
   
-## Steps to install and configure Striim and Java (1.8) in a Linux machine (CentOs, Amazon Linux 2, Ubuntu, Debian, and RedHat).
+## Steps to install and configure Striim and Java (1.8) in a Linux machine.
 
-**Note:** These steps only apply to the Linux OS. If you want to install Striim on Windows, please follow these instructions:
+**Note:** These steps only apply to Linux OS (CentOs, Amazon Linux 2, Ubuntu, Debian, and RedHat). If you want to install Striim on Windows, please follow these instructions:
 
 - **Register** and create an account on this page: [https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim](https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim)
 
