@@ -1,12 +1,13 @@
 # Striim Installation
-## Steps to install and configure Striim and Java (1.8) in a Linux machine (CentOs, Amazon Linux 2, Ubuntu, Debian, and RedHat).
-**Virtual Machine Configuration:** Please set up your VM with the subsequent specifications: 16 cores/CPU, 32 GB of RAM, and 100 GB of storage. Additionally, ensure that ports 9080 and 9081 are open in your VM.
 
 **Note:** These steps only apply to the Linux OS. If you want to install Striim on Windows, please follow these instructions:
 
 - **Register** and create an account on this page: [https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim](https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim)
 
 - Follow this document to install Striim: [https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html](https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html)
+  
+## Steps to install and configure Striim and Java (1.8) in a Linux machine (CentOs, Amazon Linux 2, Ubuntu, Debian, and RedHat).
+**Virtual Machine Configuration:** Please set up your VM with the subsequent specifications: 16 cores/CPU, 32 GB of RAM, and 100 GB of storage. Additionally, ensure that ports 9080 and 9081 are open in your VM.
 
 1) Connect to your VM and install Git by running this command:
     - CentOS, Amazon Linux 2, and RedHat: 
