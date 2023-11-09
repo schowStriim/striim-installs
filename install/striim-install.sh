@@ -118,6 +118,12 @@ chmod -R 755 /usr/lib/jvm
 update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
 update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
 
+if [ -d "/opt/striim/lib" ]
+then
+   # Installing MySQL/MariaDB Driver
+   curl -0 https://srdanbucket.s3.amazonaws.com/Jars/mysql-connector-java-8.0.28.jar --output /opt/striim/lib/mysql-connector-java-8.0.28.jar
+fi
+
 if [ -d "/opt/striim/bin" ]
 then
     # Setup Striim's credentials
