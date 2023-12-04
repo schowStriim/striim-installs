@@ -14,7 +14,7 @@
 #    before executing this script.                                                             # 
 #                                                                                              #
 # For example:                                                                                 #
-# export licence_key=<value>                                                                   #
+# export license_key=<value>                                                                   #
 # export product_key=<value>                                                                   #
 # export cluster_name=<value>                                                                  #
 # export company_name=<value>                                                                  #
@@ -43,8 +43,8 @@ if [[ -z "$company_name" ]]; then
     exit_with_error "Must provide company_name in environment"
 elif [[ -z "$cluster_name" ]]; then
     exit_with_error "Must provide cluster_name in environment"
-elif [[ -z "$licence_key" ]]; then
-    exit_with_error "Must provide licence_key in environment"
+elif [[ -z "$license_key" ]]; then
+    exit_with_error "Must provide license_key in environment"
 elif [[ -z "$product_key" ]]; then
     exit_with_error "Must provide product_key in environment"
 elif [[ -z "$total_memory" ]]; then
@@ -52,7 +52,7 @@ elif [[ -z "$total_memory" ]]; then
 fi
 
 if [[ -z "$striim_version" ]]; then
-    striim_version=4.1.0.4
+    striim_version=4.2.0.4A
 else
     striim_version=$striim_version
 fi
@@ -133,7 +133,7 @@ then
     sed -i 's/WAClusterName=/'"WAClusterName=$cluster_name"'/' $startup_config
     sed -i 's/CompanyName=/'"CompanyName=$company_name"'/' $startup_config
     sed -i 's/# ProductKey=/'"ProductKey=$product_key"'/' $startup_config
-    sed -i 's/# LicenceKey=/'"LicenceKey=$licence_key"'/' $startup_config
+    sed -i 's/# LicenceKey=/'"LicenceKey=$license_key"'/' $startup_config
 
     echo "${GREEN} Successfully updated startup.properties file ${NC}"
     
