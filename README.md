@@ -23,7 +23,7 @@
 3) Export your license key, product key, company name, total memory, and cluster name as environment variables to configure Striim.
     - For example:
       - `export company_name=Striim`
-      - `export licence_key=12345676`
+      - `export license_key=12345676`
       - `export product_key=12345566`
       - `export total_memory=16`
       - `export cluster_name=Striim_cluster`
