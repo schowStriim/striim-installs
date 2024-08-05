@@ -4,9 +4,11 @@
 
 **Note:** These steps only apply to Linux OS (CentOs, Amazon Linux 2, Ubuntu, Debian, and RedHat). If you want to install Striim on Windows, please follow these instructions:
 
-- **Register** on this page and download the latest TGZ file: [https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim](https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim)
-
-- Follow this document to install Striim: [https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html](https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html)
+- **Register** on this page and download the latest TGZ file and Windows Service Package file: [https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim](https://support.striim.com/hc/en-us/articles/229277848-Download-of-Latest-Version-of-Striim)
+- Unzip Striim TGZ file into chosen installation directory
+- Navigate to https://striim-downloads.striim.com/Releases/<striim_latest_version>/Striim_windowsService_<striim_latest_version>.zip to download the Window server package
+- Unzip the Windows server package into the `striim/conf` directory from prior step
+- Follow this document to finish the Striim installation: [https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html](https://www.striim.com/docs/platform/en/running-striim-in-microsoft-windows.html)
 
 **Virtual Machine Configuration:** Please set up your VM with the subsequent specifications: 16 cores/CPU, 32 GB of RAM, and 100 GB of storage. Additionally, ensure that ports 9080 and 9081 are open in your VM.
 
