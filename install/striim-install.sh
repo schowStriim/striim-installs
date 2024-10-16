@@ -1,7 +1,7 @@
 #!/bin/bash
 ################################################################################################
 # DESCRIPTION: This bash script does the following:                                   	       #	 
-# 1) Installs Java JDK (1.8).                                                                  #
+# 1) Installs Java JDK (11).                                                                  #
 # 2) Installs Striim.                                                                          # 
 # 3) Sets up Striim configuration (startup.properties and runs sksConfig file).                #
 # 4) Creates a single or multiple Initial Load application(s). (Optional)		       #
@@ -108,12 +108,12 @@ else
 	exit_with_error "Wrong selection. Please enter either amazon, debian, ubuntu, centos or redhat."
 fi
 
-# Install Java JDK (1.8)
+# Install Java JDK (11)
 echo "${GREEN} Install Java JDK 1.8 ${NC}"
 curl -0 -L https://simson-bucket.s3.us-east-2.amazonaws.com/jdk-11.0.24_linux-x64_bin.tar.gz --output jdk-11.0.24_linux-x64_bin.tar.gz ||
     exit_with_error "Failed to download Java JDK package"
 mkdir -p /usr/lib/jvm
-tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
+tar zxvf jdk-11.0.24_linux-x64_bin.tar.gz -C /usr/lib/jvm
 chmod -R 755 /usr/lib/jvm
 update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-11.0.24/bin/java" 1
 update-alternatives --set java /usr/lib/jvm/jdk-11.0.24/bin/java
