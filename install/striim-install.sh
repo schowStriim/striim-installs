@@ -110,7 +110,7 @@ fi
 
 # Install Java JDK (11)
 echo "${GREEN} Install Java JDK 1.8 ${NC}"
-curl -0 -L https://simson-bucket.s3.us-east-2.amazonaws.com/jdk-11.0.24_linux-x64_bin.tar.gz --output jdk-11.0.24_linux-x64_bin.tar.gz ||
+curl -0 -L https://striim-download.s3.us-west-1.amazonaws.com/jdk-11.0.24_linux-x64_bin.tar.gz --output jdk-11.0.24_linux-x64_bin.tar.gz ||
     exit_with_error "Failed to download Java JDK package"
 mkdir -p /usr/lib/jvm
 tar zxvf jdk-11.0.24_linux-x64_bin.tar.gz -C /usr/lib/jvm
