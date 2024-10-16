@@ -52,7 +52,7 @@ elif [[ -z "$total_memory" ]]; then
 fi
 
 if [[ -z "$striim_version" ]]; then
-    striim_version=4.2.0.16
+    striim_version=5.0.2-beta
 else
     striim_version=$striim_version
 fi
@@ -110,13 +110,13 @@ fi
 
 # Install Java JDK (1.8)
 echo "${GREEN} Install Java JDK 1.8 ${NC}"
-curl -0 -L https://striim-downloads.s3.us-west-1.amazonaws.com/jdk-8u341-linux-x64.tar.gz --output jdk-8u341-linux-x64.tar.gz ||
+curl -0 -L https://simson-bucket.s3.us-east-2.amazonaws.com/jdk-11.0.24_linux-x64_bin.tar.gz --output jdk-11.0.24_linux-x64_bin.tar.gz ||
     exit_with_error "Failed to download Java JDK package"
 mkdir -p /usr/lib/jvm
 tar zxvf jdk-8u341-linux-x64.tar.gz -C /usr/lib/jvm
 chmod -R 755 /usr/lib/jvm
-update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_341/bin/java" 1
-update-alternatives --set java /usr/lib/jvm/jdk1.8.0_341/bin/java
+update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-11.0.24/bin/java" 1
+update-alternatives --set java /usr/lib/jvm/jdk-11.0.24/bin/java
 
 if [ -d "/opt/striim/lib" ]
 then
