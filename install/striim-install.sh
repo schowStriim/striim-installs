@@ -52,7 +52,7 @@ elif [[ -z "$total_memory" ]]; then
 fi
 
 if [[ -z "$striim_version" ]]; then
-    striim_version=5.0.2
+    striim_version=5.2.0
 else
     striim_version=$striim_version
 fi
